@@ -19,7 +19,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark.destroy
-    redirect_to list_path(@bookmark.list)
+    redirect_to list_path(@bookmark.list), status: :see_other
   end
 
   private
@@ -33,6 +33,6 @@ class BookmarksController < ApplicationController
   end
 
   def bookmark_params
-    params.require(:bookmark).permit(:movie_id)
+    params.require(:bookmark).permit(:comment, :movie_id)
   end
 end
